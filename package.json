@@ -27,6 +27,7 @@
     "native-base": "2.13.8",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
+    "react-jss": "^10.4.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-safe-area-context": "0.7.3",

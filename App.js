@@ -10,6 +10,7 @@ import { AppLoading } from 'expo';
 import { Container, Text } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import GlassComponent from './components/GlassComponent';
 
 const Stack = createStackNavigator();
 
@@ -22,11 +23,12 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <NavigationContainer linking={LinkingConfiguration}>
+        <GlassComponent type="water"></GlassComponent>
+        {/* <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
           </Stack.Navigator>
-        </NavigationContainer>
+        </NavigationContainer> */}
       </View>
     );
   }
