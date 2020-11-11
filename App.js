@@ -11,6 +11,7 @@ import { Container, Text } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import GlassComponent from './components/GlassComponent';
+import GlassesContainer from './components/GlassesContainer';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,8 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        <GlassComponent type="water"></GlassComponent>
+        {/* <GlassComponent type="water"></GlassComponent> */}
+        <GlassesContainer count={4}></GlassesContainer>
         {/* <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
