@@ -9,15 +9,18 @@ const stl = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        padding: 20,
     }
 })
 
 export default (prop) => {
     const count = prop.count;
+    const type = prop.type;
     const items = [];
     for (let i = 1; i <= count; i++) {
-        const item = <GlassComponent type="water" id={i}></GlassComponent>;
+        const item = <GlassComponent type={type} id={i}></GlassComponent>;
         items.push(item);
     }
     return (

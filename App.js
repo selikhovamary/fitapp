@@ -23,50 +23,21 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-        {/* <GlassComponent type="water"></GlassComponent> */}
-        <GlassesContainer count={4}></GlassesContainer>
-        {/* <NavigationContainer linking={LinkingConfiguration}>
+        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}        
+        <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
           </Stack.Navigator>
-        </NavigationContainer> */}
+        </NavigationContainer>
       </View>
     );
   }
 }
-// export default class App extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isReady: false,
-//     };
-//   }
 
-//   async componentDidMount() {
-//     await Font.loadAsync({
-//       Roboto: require('native-base/Fonts/Roboto.ttf'),
-//       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-//       ...Ionicons.font,
-//     });
-//     this.setState({ isReady: true });
-//   }
-
-//   render() {
-//     if (!this.state.isReady) {
-//       return <AppLoading />;
-//     }
-
-//     return (
-//       <Container>
-//         <Text>Open up App.js to start working on your app!</Text>
-//       </Container>
-//     );
-//   }
-// }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    justifyContent:'center'
   },
 });

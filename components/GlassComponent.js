@@ -6,10 +6,14 @@ import {useState} from 'react';
 
 const stl = StyleSheet.create({
     glass: {
-        width: 41,
-        height: 60,
+        // width: 62,
+        // height: 89,
         margin: 10,
-        marginTop: 50
+        //marginTop: 50,
+        flex: 1,
+        width: 62,
+        height: 89,
+        resizeMode: 'contain'
     }
 })
 
@@ -18,7 +22,7 @@ export default (prop) => {
     const states = type === "water" ? [0, 1, 2] : [0, 1];
     const allGlassesStates = {
         "water": [require('../assets/images/emptyWater.png'), require('../assets/images/halfWater.png'), require('../assets/images/fullWater.png')],
-        "wine": [],
+        "wine": [require('../assets/images/wine2.png'), require('../assets/images/wine.png')],
         "short": [],
         "long": []
     }
@@ -28,7 +32,7 @@ export default (prop) => {
         return allStates[glass];
     }
     return (
-        <View onTouchStart={() => setGlass(glass === states.length - 1 ? 0 : glass + 1)}>
+        <View onTouchStart={() => setGlass(glass === states.length - 1 ? 0 : glass + 1)} id={prop.id}> 
         <Image source={getUrl()} style={stl.glass} ></Image>
         </View>
     )
