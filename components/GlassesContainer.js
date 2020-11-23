@@ -16,7 +16,6 @@ const stl = StyleSheet.create({
 })
 
 export default (prop) => {
-    debugger
     const count = prop.count;
     const type = prop.type;
     const items = [];

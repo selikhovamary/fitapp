@@ -18,7 +18,7 @@ export default (prop) => {
     const type = prop.type;
     const states = type === "water" ? [0, 1, 2] : [0, 1];
     const allGlassesStates = {
-        "water": [require('../assets/images/emptyWater.png'), require('../assets/images/halfWater.png'), require('../assets/images/fullWater.png')],
+        "water": [require('../assets/images/emptyWater1.png'), require('../assets/images/halfWater1.png'), require('../assets/images/fullWater1.png')],
         "wine": [require('../assets/images/wine2.png'), require('../assets/images/wine.png')],
         "short": [],
         "long": []
