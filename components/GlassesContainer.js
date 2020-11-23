@@ -16,11 +16,14 @@ const stl = StyleSheet.create({
 })
 
 export default (prop) => {
+    debugger
     const count = prop.count;
     const type = prop.type;
     const items = [];
+    const id = Math.random();
+
     for (let i = 1; i <= count; i++) {
-        const item = <GlassComponent type={type} id={i}></GlassComponent>;
+        const item = <GlassComponent type={type} key={i}></GlassComponent>;
         items.push(item);
     }
     return (

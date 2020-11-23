@@ -6,11 +6,8 @@ import {useState} from 'react';
 
 const stl = StyleSheet.create({
     glass: {
-        // width: 62,
-        // height: 89,
         margin: 10,
-        //marginTop: 50,
-        flex: 1,
+        marginTop: 50,
         width: 62,
         height: 89,
         resizeMode: 'contain'
@@ -32,7 +29,7 @@ export default (prop) => {
         return allStates[glass];
     }
     return (
-        <View onTouchStart={() => setGlass(glass === states.length - 1 ? 0 : glass + 1)} id={prop.id}> 
+        <View onTouchStart={() => setGlass(glass === states.length - 1 ? 0 : glass + 1)} > 
         <Image source={getUrl()} style={stl.glass} ></Image>
         </View>
     )
