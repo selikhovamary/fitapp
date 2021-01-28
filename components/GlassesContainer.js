@@ -19,7 +19,6 @@ export default (prop) => {
     const count = prop.count;
     const type = prop.type;
     const items = [];
-    const id = Math.random();
 
     for (let i = 1; i <= count; i++) {
         const item = <GlassComponent type={type} key={i}></GlassComponent>;

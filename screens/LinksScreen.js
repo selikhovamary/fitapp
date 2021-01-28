@@ -9,9 +9,9 @@ export default function LinksScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <GlassesContainer count={4} type="wine"></GlassesContainer>
-        <GlassesContainer count={4} type="wine"></GlassesContainer>
-        <GlassesContainer count={4} type="wine"></GlassesContainer>
-        <GlassesContainer count={4} type="wine"></GlassesContainer>
+        <GlassesContainer count={4} type="cocktail"></GlassesContainer>
+        <GlassesContainer count={4} type="beer"></GlassesContainer>
+        <GlassesContainer count={4} type="shot"></GlassesContainer>
     </ScrollView>
   );
 }
