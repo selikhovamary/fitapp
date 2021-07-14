@@ -4,6 +4,7 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import Settings from '../components/Settings';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -20,7 +21,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Healty mode',
+          title: 'Day mode',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-pint" />,
         }}
       />
@@ -28,8 +29,16 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Links"
         component={LinksScreen}
         options={{
-          title: 'Party mode',
+          title: 'Night mode',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-beer" />,
+        }}
+      />
+        <BottomTab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-settings" />,
         }}
       />
     </BottomTab.Navigator>
@@ -37,12 +46,14 @@ export default function BottomTabNavigator({ navigation, route }) {
 }
 
 function getHeaderTitle(route) {
-  const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
+  const routeName = route.state?.routes[route.state.index || 0]?.name ?? INITIAL_ROUTE_NAME;
 
   switch (routeName) {
     case 'Home':
-      return 'Reach your daily goal';
+      return 'Reach your daily goal!';
     case 'Links':
       return 'Have fun!:)';
+    case 'Settings':
+      return 'Settings';
   }
 }

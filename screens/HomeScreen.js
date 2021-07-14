@@ -1,19 +1,17 @@
-import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-
-import { MonoText } from '../components/StyledText';
-import GlassComponent from '../components/GlassComponent';
+import {  Platform, StyleSheet, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import GlassesContainer from '../components/GlassesContainer';
-export default function HomeScreen() {
+
+
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-
+      <View style={{position:'absolute',top:10, right:30}}><Ionicons name="md-stats" color='#2196f3' size="40px" onPress={() => navigation.navigate('Statistics')}></Ionicons></View>
         <GlassesContainer count={7} type="water"></GlassesContainer>
-
-    </View>
-  );
+    </View> 
+  ) 
+  ;
 }
 
 HomeScreen.navigationOptions = {
@@ -25,7 +23,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    height:'100%',
+    width:'100%'
   },
   developmentModeText: {
     marginBottom: 20,
