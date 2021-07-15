@@ -4,11 +4,13 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import GlassesContainer from '../components/GlassesContainer';
+import ThemeMode from '../components/ThemeMode';
 
 export default function LinksScreen({ navigation }) {
+  const theme = React.useContext(ThemeMode);
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <View style={{position:'absolute',top:10, right:30}}><Ionicons name="md-stats" color='#2196f3' size="40px" onPress={() => navigation.navigate('Statistics')}></Ionicons></View>
+    <ScrollView style={theme.theme == 'light' ? styles.container : styles.containerDark} contentContainerStyle={styles.contentContainer}>
+      <View style={{position:'absolute',top:10, right:30}}><Ionicons name="md-stats" color='#2196f3' size={40} onPress={() => navigation.navigate('Statistics')}></Ionicons></View>
         <GlassesContainer count={4} type="wine"></GlassesContainer>
         <GlassesContainer count={4} type="cocktail"></GlassesContainer>
         <GlassesContainer count={4} type="beer"></GlassesContainer>
@@ -37,6 +39,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fafafa',
+  },
+  containerDark: {
+    flex: 1,
+    backgroundColor: '#40485a',
   },
   contentContainer: {
     paddingTop: 15,

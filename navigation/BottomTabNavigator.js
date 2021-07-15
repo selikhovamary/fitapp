@@ -22,7 +22,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={HomeScreen}
         options={{
           title: 'Day mode',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-pint" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-pint"/>,
         }}
       />
       <BottomTab.Screen

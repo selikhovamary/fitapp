@@ -6,17 +6,27 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
  import BottomTabNavigator from './navigation/BottomTabNavigator';
  import LinkingConfiguration from './navigation/LinkingConfiguration';
 import context from './components/context';
+import ThemeMode from './components/ThemeMode';
 import Statistics from './components/Statistics';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-
+  const [theme, setTheme] = React.useState('light');
+  const value = {theme, setTheme};
+  const themeProps = {
+    colors: {
+      background: theme == 'light' ? "" : '#40485a',
+      border: '0px solid #ccc',
+      text: theme == 'light' ? "black" : 'white',
+    }
+  }
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
+      <ThemeMode.Provider value={value}>
       <context.Provider value={{
         water: 0,
         wine: 0,
@@ -25,16 +35,17 @@ export default function App() {
         shot: 0
       }
     }>
-      <View style={styles.container}>
+      <View style={theme == 'light' ? styles.container : styles.containerDark}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}        
-        <NavigationContainer linking={LinkingConfiguration}>
+        <NavigationContainer linking={LinkingConfiguration} theme={themeProps}>
           <Stack.Navigator>
             <Stack.Screen name="Root" component={BottomTabNavigator} />
-            <Stack.Screen name="Statistic" component={Statistics} />
+            <Stack.Screen name="Statistics" component={Statistics} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>
       </context.Provider>
+      </ThemeMode.Provider>
     );
   }
 }
@@ -45,4 +56,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent:'center'
   },
+  containerDark: {
+    flex: 1,
+    backgroundColor: '#40485a',
+    justifyContent:'center'
+  }
 });

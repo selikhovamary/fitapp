@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import {useState, useContext} from 'react';
 import context from './context';
+import ThemeMode from './ThemeMode';
 
 
 
@@ -22,8 +22,8 @@ const stl = StyleSheet.create({
     },
     statText: {
         fontSize: 18,
-        fontWeight: 500,
-        font: "BlinkMacSystemFont"
+        fontWeight: "500",
+        fontFamily: "BlinkMacSystemFont"
     },
     container: {
         display:"flex",
@@ -34,18 +34,30 @@ const stl = StyleSheet.create({
         width:'100%',
         backgroundColor: '#fff',
 
+    },
+    containerDark: {
+        display:"flex",
+        flexDirection:'column',
+        justifyContent:"center",
+        alignItems: 'center',
+        height:'100%',
+        width:'100%',
+        backgroundColor: '#40485a',
     }
 })
 
 export default () => {
-    const ctx = useContext(context);
+    const ctx = React.useContext(context);
+    const theme = React.useContext(ThemeMode);
     const statistic = [];
-
+    const values = Object.keys(ctx);
     for (let key in ctx) {
-        statistic.push(<Text style={stl.statText}>{key[0].toUpperCase() + key.slice(1) + ": " + ctx[key]}</Text>);
+        const index = values.indexOf(key) + 1;
+        statistic.push(<Text key={index} style={stl.statText}>{key[0].toUpperCase() + key.slice(1) + ": " + ctx[key]}</Text>);
     }
+
     return (
-        <View style={stl.container}>
+        <View style={theme.theme == 'light' ? stl.container : stl.containerDark}>
         {statistic}
         </View>
     )
