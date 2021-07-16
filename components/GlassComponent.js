@@ -8,14 +8,12 @@ import context from './context';
 const stl = StyleSheet.create({
     glass: {
         margin: 10,
-       // marginTop: 50,
         width: 62,
         height:  89,
         resizeMode: 'contain'
     },
     shot: {
         margin: 10,
-        // marginTop: 50,
          width: 62,
          height: 50,
          resizeMode: 'contain'
@@ -44,7 +42,8 @@ export default (prop) => {
             setGlass(newState)
             const mount = newState === 0 ? -1 : type === "water" ? .5 : 1;
             const newCtx = ctx;
-            newCtx[type] = newCtx[type] + mount
+            newCtx[type] = newCtx[type] + mount;
+            console.log(newCtx)
             setCtx(newCtx);
         }}> 
         <Image source={getUrl()} style={type === "shot" ? stl.shot : stl.glass} ></Image>

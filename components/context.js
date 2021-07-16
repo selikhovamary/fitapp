@@ -5,5 +5,5 @@ export default React.createContext({
     wine: 0,
     cocktail: 0,
     beer: 0,
-    shot: 0
+    shot: 0,
 })

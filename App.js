@@ -14,6 +14,7 @@ const Stack = createStackNavigator();
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const [theme, setTheme] = React.useState('light');
+  const mount = React.useContext(context);
   const value = {theme, setTheme};
   const themeProps = {
     colors: {
@@ -27,14 +28,7 @@ export default function App() {
   } else {
     return (
       <ThemeMode.Provider value={value}>
-      <context.Provider value={{
-        water: 0,
-        wine: 0,
-        cocktail: 0,
-        beer: 0,
-        shot: 0
-      }
-    }>
+      <context.Provider value={mount}>
       <View style={theme == 'light' ? styles.container : styles.containerDark}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}        
         <NavigationContainer linking={LinkingConfiguration} theme={themeProps}>

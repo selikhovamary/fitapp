@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { View, Text, Image, StyleSheet, Switch } from 'react-native';
-import { RadioButton } from 'react-native-paper';
-import {useState, useContext} from 'react';
-import context from './context';
+import {useContext} from 'react';
 import ThemeMode from './ThemeMode';
 
 
@@ -38,16 +36,6 @@ export default () => {
                 setTheme(newVal);
             }}></Switch>
             </View>
-        {/* <RadioButton.Group onValueChange={newValue => setTheme(newValue)} value={theme}>
-        <View style={{display:'inlineBlock'}}>
-          <Text style={theme == 'light' ? "": stl.textDark}>Light</Text>
-          <RadioButton value="light" />
-        </View>
-        <View style={{display:'inlineBlock'}}>
-          <Text>Dark</Text>
-          <RadioButton value="dark" />
-        </View>
-      </RadioButton.Group> */}
       </View>
     )
 }
