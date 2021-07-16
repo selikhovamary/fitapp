@@ -30,7 +30,7 @@ export default () => {
     return (
         <View style={theme == 'light' ? stl.container : stl.containerDark}>
             <View style={stl.themeContainer}>
-            <Text style={{marginRight: 30}}>Dark theme:</Text>
+            <Text style={theme == 'light' ? {marginRight: 30} : {marginRight: 30, color: '#ffffff'}}>Dark theme:</Text>
             <Switch value={theme == "dark"} onValueChange={() => {
                 const newVal = theme == "dark" ? "light" : "dark";
                 setTheme(newVal);

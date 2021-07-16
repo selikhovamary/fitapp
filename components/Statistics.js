@@ -6,24 +6,16 @@ import ThemeMode from './ThemeMode';
 
 
 const stl = StyleSheet.create({
-    glass: {
-        margin: 10,
-       // marginTop: 50,
-        width: 62,
-        height:  89,
-        resizeMode: 'contain'
-    },
-    shot: {
-        margin: 10,
-        // marginTop: 50,
-         width: 62,
-         height: 50,
-         resizeMode: 'contain'
-    },
     statText: {
         fontSize: 18,
         fontWeight: "500",
         fontFamily: "BlinkMacSystemFont"
+    },
+    statTextDark: {
+        fontSize: 18,
+        fontWeight: "500",
+        fontFamily: "BlinkMacSystemFont",
+        color: '#ffffff'
     },
     container: {
         display:"flex",
@@ -53,7 +45,7 @@ export default () => {
     const values = Object.keys(ctx);
     for (let key in ctx) {
         const index = values.indexOf(key) + 1;
-        statistic.push(<Text key={index} style={stl.statText}>{key[0].toUpperCase() + key.slice(1) + ": " + ctx[key]}</Text>);
+        statistic.push(<Text key={index} style={theme.theme == 'light' ? stl.statText : stl.statTextDark}>{key[0].toUpperCase() + key.slice(1) + ": " + ctx[key]}</Text>);
     }
 
     return (
